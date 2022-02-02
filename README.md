@@ -10,35 +10,82 @@ But how to present our ideas? We found a game called ***Duet Game***, and the wa
 I would explain some important codes in our main files that keep the program works.
 Also, we use `EasyX` library to present our project.
 
+#### `Randomizer`
+The core of this game. We randomly generate foods and make them drop from the sky. Below is the code.
 ```
 struct Randomizer
 {
     void chihuahuaFood(int, Form_Food*);
-    int cur =clock() ;
+    int cur = clock();
     int rand(int);
 };
 void Randomizer::chihuahuaFood(int level, Form_Food* ptr)
 {
     int r = 0;
-    for (int i = 0; i < amount_of_food ; i++)
+    for (int i = 0; i < amount_of_food; i++)
     {
-        r = rand(i+1);
+        r = rand(i + 1);
         ptr[i].x = 380 + r;
         ptr[i].y = 50 * (i - amount_of_food);
-        if (i %xiaojay == 0)
+        if (i % xiaojay == 0)
         {
-            food[i].value = -1; //小傑
+            food[i].value = -1;
             food[i].radius = 35;
         }
         else if (i % 10 == 0)
         {
-            food[i].value = -10; //巧克力
+            food[i].value = -10;
         }
-        /*else if (i % 5 == 0)
+        else if (i % 5 == 0)
         {
-            food[i].value = 2;  //布丁
-        }*/
-
+            food[i].value = 2;  
+        }
     }
 };
+int Randomizer::rand(int leel)
+{
+    cur = (101 * cur + 10001 ) % 32767;
+    return cur % 200 ;
+};
+```
+
+#### `count_distance`
+We use this function to check the distance between chihuahua and foods.
+```
+int count_distance(int k, Form_Dog item)
+{
+    return pow(item.y - food[k].y, 2) + pow(item.x - food[k].x, 2);
+}
+```
+
+#### `collision`
+We use this function to check whether chihuahua touches the food or not.
+```
+bool collision(int k, Form_Dog item)
+{
+    if (count_distance(k, item) <= pow((item.radius + food[k].radius), 2))
+    {
+        food[k].x = food[k].y = 10000;
+        return 1;
+    }
+    return 0;
+}
+```
+
+#### `gainpoint`
+We use this function to count the total score the player wins.
+```
+void gainpoint(int i)
+{
+    bool leftc = collision(i, left_dog);
+    bool rightc = collision(i, right_dog);
+   
+    if (food[i].visiable)
+    {
+        score += leftc * food[i].value;
+        score += rightc * food[i].value;
+        if (score < 0)
+            score = 0;
+    }
+}
 ```
