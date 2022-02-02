@@ -91,6 +91,6 @@ void gainpoint(int i)
 ```
 
 ### Future & ...
-We expect to add sounds to this game, also we plan to add more levels to make the game more interesting.
-As you can see, this is a simple game created by students after learning programming for a semester and without complicated logic, but a nice and fun try of creating a game. Hope you like it!
+We expect to add sounds to this game, also we plan to add more levels to make the game more interesting.  
+As you can see, this is a simple game created by freshman students after learning programming for a semester and without complicated logic, but a nice and fun try of creating a game. Hope you like it!  
 For further information, feel free to [contact me](mailto:b09705045@ntu.im).
