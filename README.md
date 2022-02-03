@@ -1,7 +1,7 @@
 # chihuahua_adventure
 
 ### Origin
-This is our final project of **IM10 Programming Design**. Our professor gave us no restriction, except for we must use C++ for the project. Me and my friends decided to design and implement a game to end our first semester (or say, to celebrate haha).  
+This is our final project of **IM1003 Programming Design**. Our professor gave us no restriction, except for we must use C++ for the project. Me and my friends decided to design and implement a game to end our first semester (or say, to celebrate haha).  
 We love chihuahua, a small and cute, but irritable dog. After several discussions, we finally came up our conclusion: we're gonna create a game that could prevent our beloved chihuahua from hungry, and it should be fed in different places so that the game would be more interesting! And that's all the origin of **Chihuahua Adventure**.
 
 ### Inspiration
